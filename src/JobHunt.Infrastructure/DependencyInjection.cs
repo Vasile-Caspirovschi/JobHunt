@@ -17,8 +17,6 @@ public static class DependencyInjection
         services.AddDbContext<IJobHuntDbContext, JobHuntDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
-            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
-
         //configure cloudinary for storing the images in cloud
         services.Configure<CloudinarySettings>(configuration.GetSection(nameof(CloudinarySettings)));
         services.AddScoped<ICloudImageService, CloudinaryImageService>();
